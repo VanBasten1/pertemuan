@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar Bilangan Ganjil dan Genap</title>
+</head>
+<body>
+    <h1>Tugas DDRI</h1>
+    <button onclick="alert('name : daffa raihan \n kelas : RPL X-B')">CLICK</button>
+    <h1>Daftar Bilangan Ganjil dan Genap dari 1 hingga 20</h1>
+    <ul id="numberList"></ul>
+
+    <script>
+        // Mengambil elemen ul dengan id "numberList"
+        const ul = document.getElementById('numberList');
+
+        // Inisialisasi string untuk bilangan ganjil dan bilangan genap
+        let oddNumbers = "Bilangan ganjil: ";
+        let evenNumbers = "Bilangan genap: ";
+
+        // Loop dari 1 hingga 20
+        for (let i = 1; i <= 20; i++) {
+            // Menguji apakah bilangan i adalah ganjil atau genap
+            if (i % 2 === 0) {
+                // Bilangan genap, tambahkan ke string bilangan genap
+                evenNumbers += i + ",";
+            } else {
+                // Bilangan ganjil, tambahkan ke string bilangan ganjil
+                oddNumbers += i + ",";
+            }
+        }
+
+        // Menghapus koma terakhir dari string
+        oddNumbers = oddNumbers.slice(0, -1);
+        evenNumbers = evenNumbers.slice(0, -1);
+
+        // Buat elemen <li> untuk bilangan ganjil
+        const oddLi = document.createElement('li');
+        oddLi.textContent = oddNumbers;
+        ul.appendChild(oddLi);
+
+        // Buat elemen <li> untuk bilangan genap
+        const evenLi = document.createElement('li');
+        evenLi.textContent = evenNumbers;
+        ul.appendChild(evenLi);
+    </script>
+        <h1>Kalkulator Gaji Karyawan</h1>
+    
+        <div>
+            <label for="jamKerja">Jumlah Jam Kerja:</label>
+            <input type="number" id="jamKerja" value="35">
+        </div>
+        
+        <div>
+            <label for="tarifPerJam">Tarif Per Jam (Rp):</label>
+            <input type="number" id="tarifPerJam" value="238588">
+        </div>
+        
+        <button onclick="hitungGaji()">Hitung Gaji</button>
+        
+        <p id="hasilGaji"></p>
+        
+        <script>
+            function hitungGaji() {
+                const jamKerja = parseInt(document.getElementById("jamKerja").value);
+                const tarifPerJam = parseInt(document.getElementById("tarifPerJam").value);
+                
+                let totalGaji = 0;
+                
+                if (jamKerja <= 40) {
+                    totalGaji = jamKerja * tarifPerJam;
+                } else {
+                    totalGaji = (40 * tarifPerJam) + ((jamKerja - 40) * (1.5 * tarifPerJam));
+                }
+                
+                document.getElementById("hasilGaji").textContent = `Total Gaji: Rp. ${totalGaji}`;
+            }
+        </script>
+</body>
+</html>
